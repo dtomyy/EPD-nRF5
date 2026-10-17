@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
 	<meta charset="utf-8">
@@ -11,17 +11,17 @@
 
 <body>
 	<div class="main">
-		<h3>墨水屏日历</h3>
+		<h3>電子紙日曆</h3>
 		<fieldset>
-			<legend>蓝牙连接</legend>
+			<legend>藍牙連接</legend>
 			<div class="flex-container">
 				<div class="flex-group">
-					<button id="connectbutton" type="button" class="primary" onclick="preConnect()">连接</button>
-					<button id="reconnectbutton" type="button" class="secondary" onclick="reConnect()">重连</button>
-					<button type="button" class="secondary" onclick="clearLog()">清空日志</button>
+					<button id="connectbutton" type="button" class="primary" onclick="preConnect()">配對</button>
+					<button id="reconnectbutton" type="button" class="secondary" onclick="reConnect()">重新連線</button>
+					<button type="button" class="secondary" onclick="clearLog()">清空紀錄</button>
 				</div>
 				<div class="flex-group right debug">
-					<label for="epddriver">驱动</label>
+					<label for="epddriver">驅動</label>
 					<select id="epddriver" onchange="updateDitcherOptions()">
 						<option value="01" data-color="blackWhiteColor" data-size="4.2_400_300">4.2寸 (黑白, UC8176)</option>
 						<option value="03" data-color="threeColor" data-size="4.2_400_300">4.2寸 (三色, UC8176)</option>
