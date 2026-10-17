@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>墨水屏日历</title>
+	<title>墨水屏日曆</title>
 	<link rel="shortcut icon" type="image/png" href="favicon.png">
 	<link rel="stylesheet" href="css/main.css?v=20251109">
 </head>
@@ -45,33 +45,33 @@
 				<div class="flex-group debug">
 					<label for="epdpins">引脚</label>
 					<input id="epdpins" type="text" value="">
-					<button id="setDriverbutton" type="button" class="primary" onclick="setDriver()">确定</button>
+					<button id="setDriverbutton" type="button" class="primary" onclick="setDriver()">確定</button>
 				</div>
-			</div>
+			</div>a
 			<div class="log-container" id="log"></div>
 		</fieldset>
 		<fieldset>
-			<legend>设备控制</legend>
+			<legend>設備控制</legend>
 			<div class="flex-container">
 				<div class="flex-group">
-					<button id="calendarmodebutton" type="button" class="primary" onclick="syncTime(1)">日历模式</button>
-					<button id="clockmodebutton" type="button" class="primary" onclick="syncTime(2)">时钟模式</button>
+					<button id="calendarmodebutton" type="button" class="primary" onclick="syncTime(1)">日曆模式</button>
+					<button id="clockmodebutton" type="button" class="primary" onclick="syncTime(2)">時鐘模式</button>
 					<button id="clearscreenbutton" type="button" class="secondary" onclick="clearScreen()">清除屏幕</button>
 				</div>
 				<div class="flex-group right debug">
 					<input type="text" id="cmdTXT" value="">
-					<button id="sendcmdbutton" type="button" class="primary" onclick="sendcmd()">发送命令</button>
+					<button id="sendcmdbutton" type="button" class="primary" onclick="sendcmd()">發送命令</button>
 				</div>
 			</div>
 		</fieldset>
 		<fieldset>
-			<legend>蓝牙传图</legend>
+			<legend>藍牙傳圖</legend>
 			<div class="flex-container">
 				<input type="file" id="imageFile" accept=".png,.jpg,.bmp,.webp,.jpeg" onchange="updateImage()">
 			</div>
 			<div class="flex-container options">
 				<div class="flex-group debug">
-					<label for="canvasSize">画布尺寸:</label>
+					<label for="canvasSize">畫布尺寸:</label>
 					<select id="canvasSize" onchange="updateCanvasSize()">
 						<option value="1.54_152_152">1.54 (152x152)</option>
 						<option value="1.54_200_200">1.54 (200x200)</option>
@@ -102,32 +102,32 @@
 					</select>
 				</div>
 				<div class="flex-group debug">
-					<label for="ditherMode">颜色模式:</label>
+					<label for="ditherMode">顏色模式:</label>
 					<select id="ditherMode" onchange="applyDither()">
 						<option value="blackWhiteColor">双色(黑白)</option>
-						<option value="threeColor">三色(黑白红)</option>
-						<option value="fourColor">四色(黑白红黄)</option>
-						<option value="sixColor">六色(黑白红黄蓝绿)</option>
+						<option value="threeColor">三色(黑白紅)</option>
+						<option value="fourColor">四色(黑白紅黃)</option>
+						<option value="sixColor">六色(黑白紅黃藍綠)</option>
 					</select>
 				</div>
 				<div class="flex-group">
-					<label for="ditherAlg">抖动算法:</label>
+					<label for="ditherAlg">抖動算法:</label>
 					<select id="ditherAlg" onchange="applyDither()">
 						<option value="floydSteinberg">Floyd-Steinberg</option>
 						<option value="atkinson">Atkinson</option>
 						<option value="bayer">Bayer</option>
 						<option value="stucki">Stucki</option>
 						<option value="jarvis">Jarvis-Judice-Ninke</option>
-						<option value="none">无抖动</option>
+						<option value="none">無抖動</option>a
 					</select>
 				</div>
 				<div class="flex-group">
-					<label for="ditherStrength">抖动强度:</label>
+					<label for="ditherStrength">抖動强度:</label>
 					<input type="range" min="0" max="5" step="0.1" value="1.0" id="ditherStrength">
 					<label id="ditherStrengthValue">1.0</label>
 				</div>
 				<div class="flex-group">
-					<label for="ditherContrast">对比度:</label>
+					<label for="ditherContrast">對比度:</label>
 					<input type="range" min="0.5" max="2" step="0.1" value="1.2" id="ditherContrast">
 					<label id="ditherContrastValue">1.2</label>
 				</div>
@@ -136,17 +136,17 @@
 				<div class="flex-group debug">
 					<label for="mtusize">MTU:</label>
 					<input type="number" id="mtusize" value="20" min="0" max="255">
-					<label for="interleavedcount">确认间隔:</label>
+					<label for="interleavedcount">確認間隔:</label>
 					<input type="number" id="interleavedcount" value="50" min="0" max="500">
 				</div>
 			</div>
-			<div class="status-bar"><b>状态：</b><span id="status"></span></div>
+			<div class="status-bar"><b>狀態：</b><span id="status"></span></div>
 			<div class="flex-container">
 				<div class="flex-group">
-					<button type="button" class="secondary debug" onclick="rotateCanvas()">旋转画布</button>
-					<button type="button" class="secondary" onclick="clearCanvas()">清除画布</button>
-					<button type="button" class="secondary debug" onclick="downloadDataArray()">下载数组</button>
-					<button id="sendimgbutton" type="button" class="primary" onclick="sendimg()">发送图片</button>
+					<button type="button" class="secondary debug" onclick="rotateCanvas()">旋轉畫布</button>
+					<button type="button" class="secondary" onclick="clearCanvas()">清除畫布</button>
+					<button type="button" class="secondary debug" onclick="downloadDataArray()">下載數組</button>
+					<button id="sendimgbutton" type="button" class="primary" onclick="sendimg()">發送圖片</button>
 				</div>
 			</div>
 			<div class="canvas-container">
@@ -154,7 +154,7 @@
 				<canvas id="canvas" width="400" height="300"></canvas>
 				<div class="flex-container canvas-tools">
 					<div class="flex-group tool-buttons">
-						<button id="brush-mode" title="画笔" class="tool-button">✏️</button>
+						<button id="brush-mode" title="畫筆" class="tool-button">✏️</button>
 						<button id="eraser-mode" title="橡皮擦" class="tool-button">🧽</button>
 						<button id="text-mode" title="添加文字" class="tool-button">T</button>
 						<button id="undo-btn" title="撤销 (Ctrl+Z)" class="tool-button hide">↶</button>
@@ -163,22 +163,22 @@
 				</div>
 				<div class="flex-container canvas-tools">
 					<div class="flex-group brush-tools">
-						<label for="brush-color">颜色:</label>
+						<label for="brush-color">顏色:</label>
 						<select id="brush-color">
 							<option value="#000000">黑色</option>
-							<option value="#FF0000">红色</option>
-							<option value="#FFFF00">黄色</option>
-							<option value="#00FF00">绿色</option>
-							<option value="#0000FF">蓝色</option>
+							<option value="#FF0000">紅色</option>
+							<option value="#FFFF00">黃色</option>
+							<option value="#00FF00">綠色</option>
+							<option value="#0000FF">藍色</option>
 							<option value="#FFFFFF">白色</option>
 						</select>
-						<label for="brush-size">粗细:</label>
+						<label for="brush-size">粗細:</label>
 						<input type="number" id="brush-size" value="2" min="1" max="100">
 					</div>
 				</div>
 				<div class="flex-container canvas-tools">
 					<div class="flex-group text-tools">
-						<label for="font-family">字体:</label>
+						<label for="font-family">字體:</label>
 						<select id="font-family">
 							<option value="Arial">Arial</option>
 							<option value="sans-serif">Sans-serif</option>
@@ -186,27 +186,27 @@
 							<option value="SimSun">宋體</option>
 							<option value="SimHei">黑體</option>
 							<option value="Microsoft Yahei">微軟雅黑</option>
-							<option value="Microsoft JhengHei">微软正黑体</option>
-							<option value="KaiTi">楷体</option>
+							<option value="Microsoft JhengHei">微軟正黑體</option>
+							<option value="KaiTi">楷體</option>
 							<option value="NSimSun">新宋體</option>
 							<option value="FangSong">仿宋</option>
-							<option value="YouYuan">幼圆</option>
-							<option value="LiSu">隶书</option>
-							<option value="STHeiti">华文黑体</option>
-							<option value="STXihei">华文细黑</option>
-							<option value="STKaiti">华文楷体</option>
-							<option value="STSong">华文宋体</option>
-							<option value="STFangsong">华文仿宋</option>
-							<option value="STZhongsong">华文中宋</option>
-							<option value="STHupo">华文琥珀</option>
-							<option value="STXinwei">华文新魏</option>
-							<option value="STLiti">华文隶书</option>
-							<option value="STXingkai">华文行楷</option>
-							<option value="FZShuTi">方正舒体</option>
-							<option value="FZYaoti">方正姚体</option>
-							<option value="PingFang SC">苹方</option>
+							<option value="YouYuan">幽圓</option>
+							<option value="LiSu">隸書</option>
+							<option value="STHeiti">華文黑體</option>
+							<option value="STXihei">華文細黑</option>
+							<option value="STKaiti">華文楷體</option>
+							<option value="STSong">華文宋體</option>
+							<option value="STFangsong">華文仿宋</option>
+							<option value="STZhongsong">華文中宋</option>
+							<option value="STHupo">華文琥珀</option>
+							<option value="STXinwei">華文新魏</option>
+							<option value="STLiti">華文隸書</option>
+							<option value="STXingkai">華文行楷</option>
+							<option value="FZShuTi">方正舒體</option>
+							<option value="FZYaoti">方正姚體</option>
+							<option value="PingFang SC">蘋方</option>
 							<option value="Source Han Sans CN">思源黑體</option>
-							<option value="Source Han Serif SC">思源宋体</option>
+							<option value="Source Han Serif SC">思源宋體</option>
 							<option value="WenQuanYi Micro Hei">文泉驿微米黑</option>
 							</optgroup>
 						</select>
@@ -214,14 +214,14 @@
 						<input type="number" id="font-size" value="16" min="1" max="100">
 					</div>
 					<div class="flex-group text-tools">
-						<input type="text" id="text-input" placeholder="输入文字" style="width:150px">
-						<button id="text-bold" title="粗体">B</button>
-						<button id="text-italic" title="斜体">I</button>
+						<input type="text" id="text-input" placeholder="輸入文字" style="width:150px">
+						<button id="text-bold" title="粗體">B</button>
+						<button id="text-italic" title="斜體">I</button>
 						<button id="add-text-btn" class="primary">添加文字</button>
 					</div>
 					<div class="flex-group crop-tools">
 						<button id="crop-zoom-in" title="放大" class="secondary">+</button>
-						<button id="crop-zoom-out" title="缩小" class="secondary">-</button>
+						<button id="crop-zoom-out" title="縮小" class="secondary">-</button>
 						<button id="crop-move-left" title="左移">⇦</button>
 						<button id="crop-move-up" title="上移">⇧</button>
 						<button id="crop-move-down" title="下移">⇩</button>
@@ -235,8 +235,8 @@
 			<span class="copy">&copy; 2025 tsl0922.</span>
 			<span class="links">
 				<a href="https://github.com/tsl0922/EPD-nRF5">Github</a>
-				<a href="https://qm.qq.com/q/SckzhfDxuu" onclick="return confirm('本群是此开源固件作者的技术交流群\n如果你购买了成品，请找卖家提供售后！')">交流群</a>
-				<a href="?debug=true" id="debug-toggle">开发模式</a>
+				<a href="https://qm.qq.com/q/SckzhfDxuu" onclick="return confirm('本群組是此開源韌體作者的技術交流群組\n如果你購買了成品，請找賣家提供售後！')">交流群</a>
+				<a href="?debug=true" id="debug-toggle">開發模式</a>
 			</span>
 		</div>
 	</div>
