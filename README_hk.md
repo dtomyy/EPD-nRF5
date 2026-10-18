@@ -28,4 +28,5 @@
 
 - [ZinggJM/GxEPD2](https://github.com/ZinggJM/GxEPD2)
 - [waveshareteam/e-Paper](https://github.com/waveshareteam/e-Paper)
-- [atc1441/ATC_TLSR_Paper](https://github.com/atc1441/ATC_TLSR_Paper)\n\n--forked from tsl0922/EPD-nRF5
+- [atc1441/ATC_TLSR_Paper](https://github.com/atc1441/ATC_TLSR_Paper)
+- 分叉儲存庫源自[tsl0922/EPD-nRF5](https://github.com/tsl0922/EPD-nRF5)
