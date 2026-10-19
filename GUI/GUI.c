@@ -23,9 +23,7 @@ typedef struct {
 
 static const Festival festivals[] = {
     {1, 1, "元旦節"},  {2, 14, "情人節"}, {3, 8, "婦女節"},  {3, 12, "植樹節"},  {4, 1, "愚人節"},
-<<<<<<< HEAD
-<<<<<<< HEAD
-    {5, 1, "勞動節"},  {5, 4, "青年節"},  {6, 1, "兒童節"},  {7, 1,},   {8, 1,},
+    {5, 1, "勞動節"},  {5, 25, "佛誕翌日"},   {6, 1, "兒童節"},  {6, 19, "端午節"},   {8, 1, "建軍節"},
     {9, 10, "教師節"}, {10, 1, "國慶節"}, {11, 1, "萬聖節"}, {12, 24, "平安夜"}, {12, 25, "聖誕節"},
 } ;
 
@@ -34,22 +32,12 @@ static const Festival festivals_lunar[] = {
     {8, 15, "中秋節"}, {9, 9, "重陽節"},  {10, 1, "寒衣節"}, {12, 8, "腊八節"}, {12, 30, "除夕"},
 } ;
 
-// 放假和調休數據，每年更新
-=======
-    {5, 1, "勞動節"},  {5, 4, "青年節"},  {6, 1, "兒童節"},  {7, 1, "建黨節"},   {8, 1, "建軍節"},
-=======
-    {5, 1, "勞動節"},  {5, 25, "佛誕翌日"},   {6, 1, "兒童節"},  {6, 19, "端午節"},   {8, 1, "建軍節"},
->>>>>>> 62f503c (Function to recover accidentally deleted, Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
-    {9, 10, "教師節"}, {10, 1, "國慶日"}, {11, 1, "萬聖節"}, {12, 24, "平安夜"}, {12, 25, "聖誕節"},
-};
-
 static const Festival festivals_lunar[] = {
     {1, 1, "春節"},    {1, 15, "元宵節"}, {2, 2, "龍抬頭"},  {5, 5, "端午節"},  {7, 7, "七夕節"}, {7, 1, "香港回歸"},
     {8, 15, "中秋節"}, {9, 9, "重陽節"},  {10, 1, "國慶"}, {10, 19, "重陽翌日"}, {12, 8, "臘八節"}, {12, 26, "聖誕補假"}, {12, 30, "除夕"},
 };
 
-// Holiday and compensatory leave data, updated annually
->>>>>>> 0e4e3f1 (Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
+// 放假和調休數據，每年更新
 #define HOLIDAY_YEAR 2026
 static const uint16_t holidays[] = {
     0x0101, 0x0211, 0x0212, 0x0213,  // 1月1日元旦, 2月17-19日農曆年初一/二/三
@@ -109,43 +97,26 @@ static bool GetFestival(uint16_t year, uint8_t mon, uint8_t day, uint8_t week, s
         strcpy(festival, "感恩節");
         return true;
     }
-<<<<<<< HEAD
     // 公历节日
-=======
-
-    // Gregorian calendar festivals
->>>>>>> 0e4e3f1 (Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
     for (uint8_t i = 0; i < ARRAY_SIZE(festivals); i++) {
         if (mon == festivals[i].month && day == festivals[i].day) {
             strcpy(festival, festivals[i].name);
             return true;
         }
     }
-<<<<<<< HEAD
     // 二十四节气
-=======
-
-    // Twenty-four solar terms
->>>>>>> 0e4e3f1 (Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
     uint8_t JQdate;
     if (GetJieQi(year, mon, day, &JQdate) && JQdate == day) {
         uint8_t JQ = (mon - 1) * 2;
         if (day >= 15) JQ++;
         strcpy(festival, JieQiStr[JQ]);
         if (JQ == 6)  // 清明
-<<<<<<< HEAD
-            strcat(festival, "节");
-=======
             strcat(festival, "節");
-
->>>>>>> 0e4e3f1 (Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
         return true;
     }
 
     return false;
-<<<<<<< HEAD
-}
-=======
+
 }
 
 static void DrawTimeSyncTip(Adafruit_GFX* gfx, gui_data_t* data) {
@@ -494,9 +465,4 @@ void DrawGUI(gui_data_t* data, buffer_callback callback, void* callback_data) {
     } while (GFX_nextPage(&gfx, callback, callback_data));
 
     GFX_end(&gfx);
-<<<<<<< HEAD
 }
->>>>>>> 0e4e3f1 (Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
-=======
-}
->>>>>>> 62f503c (Function to recover accidentally deleted, Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
