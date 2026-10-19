@@ -24,6 +24,7 @@ typedef struct {
 static const Festival festivals[] = {
     {1, 1, "元旦節"},  {2, 14, "情人節"}, {3, 8, "婦女節"},  {3, 12, "植樹節"},  {4, 1, "愚人節"},
 <<<<<<< HEAD
+<<<<<<< HEAD
     {5, 1, "勞動節"},  {5, 4, "青年節"},  {6, 1, "兒童節"},  {7, 1,},   {8, 1,},
     {9, 10, "教師節"}, {10, 1, "國慶節"}, {11, 1, "萬聖節"}, {12, 24, "平安夜"}, {12, 25, "聖誕節"},
 } ;
@@ -36,12 +37,15 @@ static const Festival festivals_lunar[] = {
 // 放假和調休數據，每年更新
 =======
     {5, 1, "勞動節"},  {5, 4, "青年節"},  {6, 1, "兒童節"},  {7, 1, "建黨節"},   {8, 1, "建軍節"},
+=======
+    {5, 1, "勞動節"},  {5, 25, "佛誕翌日"},   {6, 1, "兒童節"},  {6, 19, "端午節"},   {8, 1, "建軍節"},
+>>>>>>> 62f503c (Function to recover accidentally deleted, Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
     {9, 10, "教師節"}, {10, 1, "國慶日"}, {11, 1, "萬聖節"}, {12, 24, "平安夜"}, {12, 25, "聖誕節"},
 };
 
 static const Festival festivals_lunar[] = {
-    {1, 1, "春節"},    {1, 15, "元宵節"}, {2, 2, "龍抬頭"},  {5, 5, "端午節"},  {7, 7, "七夕節"}, {7, 15, "中元節"},
-    {8, 15, "中秋節"}, {9, 9, "重陽節"},  {10, 1, "寒衣節"}, {12, 8, "臘八節"}, {12, 30, "除夕"},
+    {1, 1, "春節"},    {1, 15, "元宵節"}, {2, 2, "龍抬頭"},  {5, 5, "端午節"},  {7, 7, "七夕節"}, {7, 1, "香港回歸"},
+    {8, 15, "中秋節"}, {9, 9, "重陽節"},  {10, 1, "國慶"}, {10, 19, "重陽翌日"}, {12, 8, "臘八節"}, {12, 26, "聖誕補假"}, {12, 30, "除夕"},
 };
 
 // Holiday and compensatory leave data, updated annually
@@ -490,5 +494,9 @@ void DrawGUI(gui_data_t* data, buffer_callback callback, void* callback_data) {
     } while (GFX_nextPage(&gfx, callback, callback_data));
 
     GFX_end(&gfx);
+<<<<<<< HEAD
 }
 >>>>>>> 0e4e3f1 (Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
+=======
+}
+>>>>>>> 62f503c (Function to recover accidentally deleted, Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)

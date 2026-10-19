@@ -3,7 +3,7 @@
 const char Lunar_MonthString[13][7] = {"----", "正月", "二月", "三月", "四月", "五月", "六月",
                                        "七月", "八月", "九月", "十月", "冬月", "臘月"};
 
-const char Lunar_MonthLeapString[2][4] = {" ", "闰"};
+const char Lunar_MonthLeapString[2][4] = {" ", "閏"};
 
 const char Lunar_DateString[31][7] = {"----", "初一", "初二", "初三", "初四", "初五", "初六", "初七",
                                       "初八", "初九", "初十", "十一", "十二", "十三", "十四", "十五",
