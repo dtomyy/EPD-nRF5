@@ -1,7 +1,7 @@
 ﻿#include "Lunar.h"
 
 const char Lunar_MonthString[13][7] = {"----", "正月", "二月", "三月", "四月", "五月", "六月",
-                                       "七月", "八月", "九月", "十月", "冬月", "腊月"};
+                                       "七月", "八月", "九月", "十月", "冬月", "臘月"};
 
 const char Lunar_MonthLeapString[2][4] = {" ", "闰"};
 
@@ -12,7 +12,7 @@ const char Lunar_DateString[31][7] = {"----", "初一", "初二", "初三", "初
 
 const char Lunar_DayString[7][4] = {"日", "一", "二", "三", "四", "五", "六"};
 
-const char Lunar_ZodiacString[12][4] = {"猴", "鸡", "狗", "猪", "鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊"};
+const char Lunar_ZodiacString[12][4] = {"猴", "鸡", "狗", "豬", "鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊"};
 
 const char Lunar_StemStrig[10][4] = {"庚", "辛", "壬", "癸", "甲", "乙", "丙", "丁", "戊", "己"};
 
@@ -146,14 +146,14 @@ uint8_t LUNAR_GetStem(const struct Lunar_Date* lunar) { return lunar->Year % 10;
 uint8_t LUNAR_GetBranch(const struct Lunar_Date* lunar) { return lunar->Year % 12; }
 
 /*********************************************************************************************************
- **         以下为24节气计算相关程序
+ **         以下為24節氣計算相關程序
  **------------------------------------------------------------------------------------------------------
  ********************************************************************************************************/
 
 /*
- 每年24节气标志表
- 有兴趣的朋友可按照上面给的原理添加其它年份的表格
- 不是很清楚的朋友可给我发EMAIL
+ 每年24節氣標誌表
+ 有興趣的朋友可按照上面給的原理添加其它年份的表格
+ 不是很清楚的朋友可寄EMAIL
  */
 static const uint8_t YearMonthBit[160] = {
     0x4E, 0xA6, 0x99,  // 2000
@@ -213,34 +213,39 @@ static const uint8_t YearMonthBit[160] = {
     0xBE, 0xA6, 0x18,  // 2050
 };
 static const uint8_t days[24] = {
-    6, 20, 4, 19, 6, 21,  // 一月到三月  的节气基本日期
-    5, 20, 6, 21, 6, 21,  // 四月到六月  的节气基本日期
-    7, 23, 8, 23, 8, 23,  // 七月到九月  的节气基本日期
-    8, 24, 8, 22, 7, 22,  // 十月到十二月的节气基本日期
+    6, 20, 4, 19, 6, 21,  //一月到三月 的節氣基本日期
+    5, 20, 6, 21, 6, 21, //四月到六月 的節氣基本日期
+    7, 23, 8, 23, 8, 23, //七月到九月 的節氣基本日期
+    8, 24, 8, 22, 7, 22, //十月到十二月的節氣基本日期
 };
 /*立春、雨水、惊蛰、春分、清明、谷雨、立夏、小满、芒种、夏至、小暑、大暑、立秋、处暑、白露、秋分、寒露、霜降、立冬、小雪、大雪、冬至、小寒、大寒
  *
  */
 const char JieQiStr[24][7] = {
+<<<<<<< HEAD
     "小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "穀雨", "立夏", "小滿", "芒種", "夏至",
     "小暑", "大暑", "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至",
+=======
+    "小寒", "大寒", "立春", "雨水", "驚蟄", "春分", "清明", "穀雨", "立夏", "小滿", "芒種", "夏至",
+    "小暑", "大暑", "立秋", "處暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至",
+>>>>>>> 0e4e3f1 (Convert from Simplified Chinese + Mainland holidays to Traditional Chinese + Hong Kong 2026 holidays)
 };
 const uint8_t MonthDayMax[12] = {
     31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
 };
 
 /*********************************************************************************************************
- ** 函数名称:GetJieQi
- ** 功能描述:输入公历日期得到本月24节气日期 day<15返回上半月节气,反之返回下半月
- **          如:GetJieQiStr(2007,02,08,str) 返回str[0]=4
- ** 输　入:  year        公历年
- **          month       公历月
- **          day         公历日
- **          str         储存对应本月节气日期地址   1Byte
- ** 输　出:  1           成功
- **          0           失败
- ** 作　者:  赖皮        ★〓个人原创〓★
- ** 日　期:  2007年02月08日
+**函數名稱:GetJieQi
+ **功能描述:輸入公曆日期得到本月24節氣日期 day<15返回上半月節氣,反之返回下半月
+ **如:GetJieQiStr(2007,02,08,str) 回傳str[0]=4
+ **輸　入: year 公曆年
+ **month 公曆月
+ **day 公曆日
+ **str 儲存對應本月節氣日期地址 1Byte
+ **輸　出: 1 成功
+ **0 失敗
+ **作　者: 賴皮 ★〓個人原創〓★
+ **日　期: 2007年02月08日
  **-------------------------------------------------------------------------------------------------------
  ** 修改人:
  ** 日　期:
@@ -251,15 +256,15 @@ uint8_t GetJieQi(uint16_t myear, uint8_t mmonth, uint8_t mday, uint8_t* JQdate) 
 
     if ((myear < 2000) || (myear > 2050)) return 0;
     if ((mmonth == 0) || (mmonth > 12)) return 0;
-    JQ = (mmonth - 1) * 2;  // 获得节气顺序标号(0～23
-    if (mday >= 15) JQ++;   // 判断是否是上半月
+    JQ = (mmonth - 1) * 2;  // 獲得節氣順序標號(0～23
+    if (mday >= 15) JQ++;   // 判斷是否為上半月
 
-    bak1 = YearMonthBit[(myear - 2000) * 3 + JQ / 8];  // 获得节气日期相对值所在字节
-    value = ((bak1 << (JQ % 8)) & 0x80);               // 获得节气日期相对值状态
+    bak1 = YearMonthBit[(myear - 2000) * 3 + JQ / 8];  // 取得節氣日期相對值所在位元組
+    value = ((bak1 << (JQ % 8)) & 0x80);               // 獲得節氣日期相對值狀態
 
     *JQdate = days[JQ];
     if (value != 0) {
-        // 判断年份,以决定节气相对值1代表1,还是－1。
+        // 判斷年份,以決定節氣相對值1代表1,或－1。
         if ((JQ == 1 || JQ == 11 || JQ == 18 || JQ == 21) && myear < 2044)
             (*JQdate)++;
         else
@@ -269,16 +274,16 @@ uint8_t GetJieQi(uint16_t myear, uint8_t mmonth, uint8_t mday, uint8_t* JQdate) 
 }
 
 /*********************************************************************************************************
- ** 函数名称:GetJieQiStr位置
- **          如:GetJieQiStr(2007,02,08,day) 返回str="离雨水还有11天" day式距离几天
- ** 输　入:  year        公历年
- **          month       公历月
- **          day         公历日
- **          str         储存24节气字符串地址   15Byte
- ** 输　出:  1           成功
- **          0xFF           失败
- ** 作　者:  赖皮        ★〓个人原创〓★
- ** 日　期:  2007年02月08日
+**函數名稱:GetJieQiStr位置
+ **如:GetJieQiStr(2007,02,08,day) 返回str="離雨水還有11天" day式距離幾天
+ **輸　入: year 公曆年
+ **month 公曆月
+ **day 公曆日
+ **str 儲存24節氣字串位址 15Byte
+ **輸　出: 1 成功
+ **0xFF 失敗
+ **作　者: 賴皮 ★〓個人原創〓★
+ **日　期: 2007年02月08日
  **-------------------------------------------------------------------------------------------------------
  ** 修改人:
  ** 日　期:
@@ -289,22 +294,22 @@ uint8_t GetJieQiStr(uint16_t myear, uint8_t mmonth, uint8_t mday, uint8_t* day) 
 
     if (GetJieQi(myear, mmonth, mday, &JQdate) == 0) return 0xFF;
 
-    JQ = (mmonth - 1) * 2;  // 获得节气顺序标号(0～23
+    JQ = (mmonth - 1) * 2;  // 獲得節氣順序標號(0～23
 
-    if (mday >= 15) JQ++;  // 判断是否是上半月
+    if (mday >= 15) JQ++;  // 判斷是否為上半月
 
-    if (mday == JQdate)  // 今天正是一个节气日
+    if (mday == JQdate)  // 今天正是一個節氣日
     {
         *day = 0;
         return JQ;
     }
-    // 今天不是一个节气日
-    // StrCopy(str, (uint8_t *)"离小寒还有??天", 15);
+    // 今天不是一個節氣日
+    // StrCopy(str, (uint8_t *)"離小寒還有??天", 15);
 
-    if (mday < JQdate)  // 如果今天日期小于本月的节气日期
+    if (mday < JQdate)  // 如果今天日期小於本月的節氣日期
     {
         mday = JQdate - mday;
-    } else  // 如果今天日期大于本月的节气日期
+    } else  // 如果今天日期大於本月的節氣日期
     {
         JQ++;
 
@@ -314,7 +319,7 @@ uint8_t GetJieQiStr(uint16_t myear, uint8_t mmonth, uint8_t mday, uint8_t* day) 
         } else  // 翻月
         {
             MaxDay = MonthDayMax[mmonth - 1];
-            if (mmonth == 2)  // 润月问题
+            if (mmonth == 2)  // 潤月問題
             {
                 if ((myear % 4 == 0) && ((myear % 100 != 0) || (myear % 400 == 0))) MaxDay++;
             }
@@ -327,7 +332,7 @@ uint8_t GetJieQiStr(uint16_t myear, uint8_t mmonth, uint8_t mday, uint8_t* day) 
     return JQ;
 }
 
-uint32_t SEC_PER_YR[2] = {31536000, 31622400};  // 闰年和非闰年的秒数
+uint32_t SEC_PER_YR[2] = {31536000, 31622400};  // 閏年和非閏年的秒數
 uint32_t SEC_PER_MT[2][12] = {
     {2678400, 2419200, 2678400, 2592000, 2678400, 2592000, 2678400, 2678400, 2592000, 2678400, 2592000, 2678400},
     {2678400, 2505600, 2678400, 2592000, 2678400, 2592000, 2678400, 2678400, 2592000, 2678400, 2592000, 2678400},
@@ -336,11 +341,11 @@ uint32_t SEC_PER_MT[2][12] = {
 
 /**
  * @Name       : static int is_leap(int yr)
- * @Description: 判断是否为闰年
- * 				"非整百年份：能被4整除的是闰年。"
- * 				"整百年份：能被400整除的是闰年。"
- * @In         : 待机算的年份
- * @Out        : 1：是闰年   0：非闰年
+ * @Description: 判断是否為闰年
+ * 				"非整百年份：能被4整除的是閏年。"
+ * 				"整百年份：能被400整除的是閏年。"
+ * @In         : 待機算的年份
+ * @Out        : 1：是閏年   0：非閏年
  * @Author     : Denis
  */
 int is_leap(int yr) {
@@ -353,9 +358,9 @@ int is_leap(int yr) {
 /**
  * @Name       : static unsigned char day_of_week_get(unsigned char month, unsigned char day,
                                      unsigned short year)
- * @Description: 根据输入的年月日计算当天为星期几
+ * @Description: 依輸入的年月日計算當天為星期幾
  * @In         : 年、月、日
- * @Out        : 星期几
+ * @Out        : 星期幾
  * @Author     : Denis
  */
 unsigned char day_of_week_get(unsigned char month, unsigned char day, unsigned short year) {
@@ -409,8 +414,7 @@ void transformTime(uint32_t unix_time, struct devtm* result) {
 uint8_t map[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 /*
-获取一个月最后一天值
-*/
+取得一個月最後一天值*/
 uint8_t get_last_day(uint16_t year, uint8_t month) {
     if (month % 12 == 1) {
         return map[month % 12] + is_leap(year);
@@ -419,11 +423,10 @@ uint8_t get_last_day(uint16_t year, uint8_t month) {
 }
 
 /*
-获取一个月第一天星期值
-*/
+取得一個月第一天星期值*/
 uint8_t get_first_day_week(uint16_t year, uint8_t month) { return day_of_week_get(month, 1, year); }
 
-// 时间结构体转时间戳
+// 時間結構體轉時間戳
 uint32_t transformTimeStruct(struct devtm* result) {
     uint32_t Cyear = 0;
     for (uint16_t i = 1970; i < result->tm_year; i++) {
