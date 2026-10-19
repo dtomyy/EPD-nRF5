@@ -12,9 +12,9 @@ const char Lunar_DateString[31][7] = {"----", "初一", "初二", "初三", "初
 
 const char Lunar_DayString[7][4] = {"日", "一", "二", "三", "四", "五", "六"};
 
-const char Lunar_ZodiacString[12][4] = {"猴", "鸡", "狗", "豬", "鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊"};
+const char Lunar_ZodiacString[12][4] = {"猴", "雞", "狗", "豬", "鼠", "牛", "虎", "兔", "龍", "蛇", "馬", "羊"};
 
-const char Lunar_StemStrig[10][4] = {"庚", "辛", "壬", "癸", "甲", "B", "C", "丁", "戊", "己"};
+const char Lunar_StemStrig[10][4] = {"庚", "辛", "壬", "癸", "甲",  "乙", "丙", "丁", "戊", "己"};
 
 const char Lunar_BranchStrig[12][4] = {"申", "酉", "戌", "亥", "子", "醜", "寅", "卯", "辰", "巳", "午", "未"};
 
